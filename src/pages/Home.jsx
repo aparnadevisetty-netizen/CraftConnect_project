@@ -44,7 +44,13 @@ function Hero() {
             <div className="absolute inset-x-8 top-6 bottom-0 rounded-t-[999px] border-2 border-gold-500/50" aria-hidden />
             <div className="absolute left-1/2 top-[30%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 animate-pop rounded-full bg-gold-400/30 blur-3xl [animation-duration:1.4s]" aria-hidden />
             <div className="absolute inset-x-6 bottom-6 top-14 animate-rise [animation-delay:.2s] [animation-duration:1s]">
-              <StoneArt art={hero.art} tone="sand" title={tr(hero, 'name')} className="bg-transparent !bg-none" />
+              <img
+                src="/images/hero-lakshmi.jpg"
+                alt={tr(hero, 'name')}
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover object-top rounded-t-[999px] rounded-b-xl"
+              />
             </div>
           </div>
           <Link to={`/crafts/${hero.id}`} className="absolute -bottom-5 left-1/2 flex w-[88%] -translate-x-1/2 items-center justify-between gap-3 rounded-xl2 bg-ivory p-4 shadow-lift transition hover:-translate-y-0.5 hover:-translate-x-1/2">
