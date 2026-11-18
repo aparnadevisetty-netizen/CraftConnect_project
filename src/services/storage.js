@@ -3,7 +3,7 @@ import { seedArtisans } from '../data/artisans.js';
 import { seedProducts } from '../data/products.js';
 import { seedVideos } from '../data/learning.js';
 
-const KEY = 'craftconnect:v4'; // bumped — reloads seed with all 20 photos wired in
+const KEY = 'craftconnect:v5'; // bumped — reloads seed with all 20 photos wired in
 const SESSION_KEY = 'craftconnect:session';
 
 export const seedState = () => ({

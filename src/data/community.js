@@ -56,16 +56,16 @@ export const seedPosts = [
 ];
 
 export const seedUsers = [
-  { id: 'a1', name: 'Pasupuleti Ramulu', phone: '9000000001', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-01-12' },
-  { id: 'a2', name: 'Kandula Parvathamma', phone: '9000000002', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-01-20' },
-  { id: 'a3', name: 'Gadde Nageswara Rao', phone: '9000000003', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-02-03' },
-  { id: 'a4', name: 'Shaik Mastan Vali', phone: '9000000004', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-02-15' },
-  { id: 'a5', name: 'Bandi Lakshmi Narasimha', phone: '9000000005', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-03-02' },
-  { id: 'a6', name: 'Yarra Sireesha', phone: '9000000006', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-03-18' },
-  { id: 'b1', name: 'Anitha Reddy', phone: '9000000011', password: 'buyer123', role: 'buyer', city: 'Guntur', blocked: false, createdAt: '2026-04-05' },
-  { id: 'b2', name: 'Karthik Menon', phone: '9000000012', password: 'buyer123', role: 'buyer', city: 'Hyderabad', blocked: false, createdAt: '2026-05-21' },
-  { id: 'b3', name: 'Divya Sharma', phone: '9000000013', password: 'buyer123', role: 'buyer', city: 'Bengaluru', blocked: false, createdAt: '2026-07-09' },
-  { id: 'admin', name: 'CraftConnect Admin', phone: '9000000099', password: 'admin123', role: 'admin', blocked: false, createdAt: '2026-01-01' },
+  { id: 'a1', name: 'Pasupuleti Ramulu', name_te: 'పసుపులేటి రాములు', phone: '9000000001', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-01-12' },
+  { id: 'a2', name: 'Kandula Parvathamma', name_te: 'కందుల పార్వతమ్మ', phone: '9000000002', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-01-20' },
+  { id: 'a3', name: 'Gadde Nageswara Rao', name_te: 'గడ్డె నాగేశ్వర రావు', phone: '9000000003', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-02-03' },
+  { id: 'a4', name: 'Shaik Mastan Vali', name_te: 'షేక్ మస్తాన్ వలీ', phone: '9000000004', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-02-15' },
+  { id: 'a5', name: 'Bandi Lakshmi Narasimha', name_te: 'బండి లక్ష్మీ నరసింహ', phone: '9000000005', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-03-02' },
+  { id: 'a6', name: 'Yarra Sireesha', name_te: 'యర్రా శిరీష', phone: '9000000006', password: 'craft123', role: 'artisan', blocked: false, createdAt: '2026-03-18' },
+  { id: 'b1', name: 'Anitha Reddy', name_te: 'అనిత రెడ్డి', phone: '9000000011', password: 'buyer123', role: 'buyer', city: 'Guntur', blocked: false, createdAt: '2026-04-05' },
+  { id: 'b2', name: 'Karthik Menon', name_te: 'కార్తీక్ మేనన్', phone: '9000000012', password: 'buyer123', role: 'buyer', city: 'Hyderabad', blocked: false, createdAt: '2026-05-21' },
+  { id: 'b3', name: 'Divya Sharma', name_te: 'దివ్యా శర్మ', phone: '9000000013', password: 'buyer123', role: 'buyer', city: 'Bengaluru', blocked: false, createdAt: '2026-07-09' },
+  { id: 'admin', name: 'CraftConnect Admin', name_te: 'క్రాఫ్ట్‌కనెక్ట్ అడ్మిన్', phone: '9000000099', password: 'admin123', role: 'admin', blocked: false, createdAt: '2026-01-01' },
 ];
 
 export const seedRequests = [

@@ -44,7 +44,7 @@ export default function PostCard({ post, compact = false }) {
         <Avatar name={author?.name || '?'} tone={author?.role === 'artisan' ? 'terracotta' : 'olive'} />
         <div className="min-w-0 flex-1">
           <p className="flex flex-wrap items-center gap-2 font-semibold">
-            {artisan ? <Link to={`/artisans/${artisan.id}`} className="hover:underline">{author.name}</Link> : author?.name || t('community.removedUser')}
+            {artisan ? <Link to={`/artisans/${artisan.id}`} className="hover:underline">{tr(author, 'name')}</Link> : tr(author, 'name') || t('community.removedUser')}
             {author && <RoleBadge role={author.role} />}
           </p>
           <p className="text-sm text-charcoal-500">{timeAgo(post.createdAt, lang)} · {t(`tag.${post.tag}`)}</p>
@@ -76,7 +76,7 @@ export default function PostCard({ post, compact = false }) {
                 <li key={c.id} className="flex gap-3">
                   <Avatar name={ca?.name || '?'} size="sm" tone={ca?.role === 'artisan' ? 'terracotta' : 'olive'} />
                   <div className="min-w-0 flex-1 rounded-2xl bg-white px-4 py-2.5">
-                    <p className="text-sm font-semibold">{ca?.name || t('community.removedUser')} <span className="font-normal text-charcoal-500">· {timeAgo(c.createdAt, lang)}</span></p>
+                    <p className="text-sm font-semibold">{tr(ca, 'name') || t('community.removedUser')} <span className="font-normal text-charcoal-500">· {timeAgo(c.createdAt, lang)}</span></p>
                     <p>{tr(c, 'text')}</p>
                   </div>
                   {mine && <button onClick={() => removeComment(post.id, c.id)} className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-charcoal-400 hover:bg-red-50 hover:text-red-700" aria-label={t('delete')}><Trash2 className="h-4 w-4" /></button>}
