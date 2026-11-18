@@ -1,0 +1,146 @@
+// Sample catalogue. `art` drives the built-in stone-relief illustration (see components/StoneArt.jsx).
+// To use real photographs, drop files into /public/images/products/ and set `photos: ['/images/products/lakshmi-1.jpg', ...]`
+// (or, after the Cloudinary integration, the Cloudinary URLs). The app shows photos first and falls back to the illustration.
+
+export const categories = [
+  { key: 'deities', en: 'Deities & sculptures', te: 'దేవతా శిల్పాలు', icon: 'Landmark' },
+  { key: 'temple', en: 'Temple art & pillars', te: 'ఆలయ శిల్పకళ, స్తంభాలు', icon: 'Columns3' },
+  { key: 'decor', en: 'Home décor', te: 'గృహాలంకరణ', icon: 'Flower2' },
+  { key: 'lamps', en: 'Lamps & puja items', te: 'దీపాలు, పూజా సామగ్రి', icon: 'Flame' },
+  { key: 'utility', en: 'Kitchen stoneware', te: 'వంటింటి రాతి సామాగ్రి', icon: 'CookingPot' },
+  { key: 'gifts', en: 'Gifts & miniatures', te: 'బహుమతులు, చిన్న శిల్పాలు', icon: 'Gift' },
+];
+
+const common = { stone: 'Durgi stone', photos: [] };
+
+// Real photographs — served from /public/images/products/
+const photo = (name) => ({ photos: [`/images/products/${name}`] });
+
+export const seedProducts = [
+  {
+    ...common, ...photo('p1-lakshmi.jpg'), id: 'p1', artisanId: 'a1', category: 'deities', featured: true, tone: 'slate',
+    name: 'Seated Lakshmi Devi', name_te: 'పద్మాసనంలో లక్ష్మీదేవి',
+    price: 12500, size: '12 in tall', weight: '14 kg', finish: 'Hand-polished face, matte body', leadDays: 0, madeToOrder: false,
+    art: { kind: 'deity', variant: 'lakshmi' },
+    description: 'Lakshmi seated on an open lotus, with two raised hands holding lotus buds. The jewellery lines, crown and halo are carved by hand and finished with a fine stone polish on the face.',
+    description_te: 'విప్పారిన పద్మంపై కూర్చున్న లక్ష్మీదేవి, పైకెత్తిన రెండు చేతుల్లో పద్మ మొగ్గలు. నగల రేఖలు, కిరీటం, ప్రభావళి చేత్తో చెక్కినవి; ముఖానికి సన్నని సాన పట్టారు.',
+    createdAt: '2026-10-02',
+  },
+  {
+    ...common, ...photo('p2-vinayaka.jpg'), id: 'p2', artisanId: 'a1', category: 'deities', featured: true, tone: 'sage',
+    name: 'Vinayaka with Modak', name_te: 'మోదకంతో వినాయకుడు',
+    price: 6800, size: '9 in tall', weight: '8 kg', finish: 'Natural matte', leadDays: 7, madeToOrder: true,
+    art: { kind: 'deity', variant: 'ganesha' },
+    description: 'A cheerful seated Vinayaka holding a modak, carved in sage-green Durgi stone. Suits a puja shelf, an entrance or a gift for a new home.',
+    description_te: 'సేజ్ గ్రీన్ దుర్గి రాతిలో మోదకం పట్టుకుని కూర్చున్న ఉల్లాస వినాయకుడు. పూజ అర, గుమ్మం లేదా గృహప్రవేశ కానుకకు తగినది.',
+    createdAt: '2026-10-09',
+  },
+  {
+    ...common, ...photo('p3-saraswati.jpg'), id: 'p3', artisanId: 'a1', category: 'deities', featured: false, tone: 'sand',
+    name: 'Saraswati Devi, Sandstone Tone', name_te: 'సరస్వతీదేవి (ఇసుకరాతి వర్ణం)',
+    price: 9800, size: '11 in tall', weight: '10 kg', finish: 'Light polish', leadDays: 14, madeToOrder: true,
+    art: { kind: 'deity', variant: 'lakshmi' },
+    description: 'Goddess of learning in a light sandstone shade. A popular gift for schools, libraries and students.',
+    description_te: 'విద్యాదేవి, లేత ఇసుకరాతి రంగులో. పాఠశాలలు, గ్రంథాలయాలు, విద్యార్థులకు ఇష్టమైన కానుక.',
+    createdAt: '2026-09-21',
+  },
+  {
+    ...common, ...photo('p4-pillar.jpg'), id: 'p4', artisanId: 'a3', category: 'temple', featured: true, tone: 'sand',
+    name: 'Carved Temple Pillar, 4 ft', name_te: 'చెక్కిన ఆలయ స్తంభం, 4 అడుగులు',
+    price: 38000, size: '48 in tall × 10 in wide', weight: '180 kg', finish: 'Hand-dressed', leadDays: 45, madeToOrder: true,
+    art: { kind: 'pillar', variant: 'full' },
+    description: 'A fluted pillar with a lotus base, banded shaft and bracketed capital in the Vijayanagara style. Made to order; transport to your site can be arranged.',
+    description_te: 'పద్మ పీఠం, పట్టీల కాండం, బ్రాకెట్ శీర్షంతో విజయనగర శైలి స్తంభం. ఆర్డర్ మీద తయారు; మీ చోటుకు రవాణా ఏర్పాటు చేయవచ్చు.',
+    createdAt: '2026-08-28',
+  },
+  {
+    ...common, ...photo('p5-jali.jpg'), id: 'p5', artisanId: 'a3', category: 'temple', featured: false, tone: 'slate',
+    name: 'Stone Jali Window Panel', name_te: 'రాతి జాలీ కిటికీ ఫలకం',
+    price: 9500, size: '24 × 24 in', weight: '38 kg', finish: 'Natural', leadDays: 21, madeToOrder: true,
+    art: { kind: 'jali', variant: 'diamond' },
+    description: 'A pierced lattice panel that lets in light and air while keeping out glare. Can be cut to your window size.',
+    description_te: 'వెలుతురు, గాలి వచ్చేలా చేసి ఎండ తీక్షణతను ఆపే రంధ్రాల జాలీ ఫలకం. మీ కిటికీ కొలతకు తగ్గట్టు కోయవచ్చు.',
+    createdAt: '2026-09-10',
+  },
+  {
+    ...common, ...photo('p6-lotus-wall.jpg'), id: 'p6', artisanId: 'a6', category: 'decor', featured: true, tone: 'terra',
+    name: 'Lotus Wall Relief', name_te: 'పద్మ గోడ శిల్పం',
+    price: 7200, size: '16 × 16 in', weight: '12 kg', finish: 'Warm-toned stone, soft polish', leadDays: 0, madeToOrder: false,
+    art: { kind: 'lotus', variant: 'full' },
+    description: 'Three layers of petals rise from a carved frame. Hangs on a hidden wall hook that is included with the panel.',
+    description_te: 'చెక్కిన చట్రం నుంచి మూడు వరుసల రేకులు పైకి లేస్తాయి. గోడకు దాచిన హుక్ ప్యానెల్‌తో పాటు ఇస్తాం.',
+    createdAt: '2026-10-15',
+  },
+  {
+    ...common, ...photo('p7-mandala.jpg'), id: 'p7', artisanId: 'a6', category: 'decor', featured: false, tone: 'slate',
+    name: 'Mandala Table Slab', name_te: 'మండల టేబుల్ స్లాబ్',
+    price: 5400, size: '14 in round', weight: '9 kg', finish: 'Smooth top', leadDays: 10, madeToOrder: true,
+    art: { kind: 'mandala', variant: 'full' },
+    description: 'A round slab with a sixteen-petal mandala. Use as a table centrepiece, a tray base or a wall piece.',
+    description_te: 'పదహారు రేకుల మండలంతో గుండ్రని స్లాబ్. టేబుల్ మధ్యలో, ట్రే అడుగుగా లేదా గోడకు వాడవచ్చు.',
+    createdAt: '2026-09-29',
+  },
+  {
+    ...common, ...photo('p8-deepam.jpg'), id: 'p8', artisanId: 'a2', category: 'lamps', featured: true, tone: 'slate',
+    name: 'Tiered Deepam Stand', name_te: 'అంచెల దీపస్తంభం',
+    price: 3800, size: '10 in tall', weight: '5 kg', finish: 'Natural matte', leadDays: 0, madeToOrder: false,
+    art: { kind: 'lamp', variant: 'stand' },
+    description: 'A three-tier lamp stand with a wide base that does not tip. Takes standard cotton wicks and oil.',
+    description_te: 'పడిపోని వెడల్పాటి పీఠంతో మూడంచెల దీపస్తంభం. సాధారణ ఒత్తులు, నూనె వేయవచ్చు.',
+    createdAt: '2026-10-20',
+  },
+  {
+    ...common, ...photo('p9-deepam-bowl.jpg'), id: 'p9', artisanId: 'a2', category: 'lamps', featured: false, tone: 'sage',
+    name: 'Akhanda Deepam Bowl', name_te: 'అఖండ దీపం గిన్నె',
+    price: 1650, size: '6 in wide', weight: '2 kg', finish: 'Smooth inside', leadDays: 0, madeToOrder: false,
+    art: { kind: 'lamp', variant: 'bowl' },
+    description: 'A deep stone bowl that holds enough oil to burn through the night. Stone stays cool at the base.',
+    description_te: 'రాత్రంతా వెలిగేంత నూనె పట్టే లోతైన రాతి గిన్నె. అడుగు భాగం చల్లగా ఉంటుంది.',
+    createdAt: '2026-10-11',
+  },
+  {
+    ...common, ...photo('p10-grinding-stone.jpg'), id: 'p10', artisanId: 'a4', category: 'utility', featured: true, tone: 'slate',
+    name: 'Traditional Grinding Stone (Rubbu Rolu)', name_te: 'సంప్రదాయ రుబ్బురోలు',
+    price: 2400, size: '14 in base', weight: '22 kg', finish: 'Hand-pecked grinding surface', leadDays: 0, madeToOrder: false,
+    art: { kind: 'mortar', variant: 'grinder' },
+    description: 'The classic flat grinding stone for idli and dosa batter, chutneys and masalas. Surface is pecked by hand so it grips the grain.',
+    description_te: 'ఇడ్లీ, దోశ పిండి, పచ్చళ్లు, మసాలాల కోసం సంప్రదాయ రుబ్బురోలు. గింజను పట్టుకునేలా ఉపరితలం చేత్తో కొట్టి తయారు చేశారు.',
+    createdAt: '2026-09-18',
+  },
+  {
+    ...common, ...photo('p11-mortar.jpg'), id: 'p11', artisanId: 'a4', category: 'utility', featured: false, tone: 'sage',
+    name: 'Stone Mortar and Pestle (Rolu-Rokali)', name_te: 'రాతి రోలు, రోకలి',
+    price: 1350, size: '7 in wide', weight: '6 kg', finish: 'Smooth bowl', leadDays: 0, madeToOrder: false,
+    art: { kind: 'mortar', variant: 'pestle' },
+    description: 'For pounding spices, garlic and pastes. The deep bowl keeps ingredients from jumping out.',
+    description_te: 'మసాలాలు, వెల్లుల్లి, ముద్దలు దంచడానికి. లోతైన గిన్నె వల్ల పదార్థాలు బయటకు ఎగరవు.',
+    createdAt: '2026-09-05',
+  },
+  {
+    ...common, ...photo('p12-mini-vinayaka.jpg'), id: 'p12', artisanId: 'a5', category: 'gifts', featured: false, tone: 'sand',
+    name: 'Miniature Vinayaka, Set of 3', name_te: 'చిన్న వినాయకులు, 3 సెట్',
+    price: 1200, size: '3 in each', weight: '1.2 kg set', finish: 'Light polish', leadDays: 5, madeToOrder: true,
+    art: { kind: 'deity', variant: 'ganesha' },
+    description: 'Three small Vinayakas in a cloth pouch. Popular as wedding and housewarming return gifts; bulk orders welcome.',
+    description_te: 'గుడ్డ సంచిలో మూడు చిన్న వినాయకులు. పెళ్లి, గృహప్రవేశ రిటర్న్ గిఫ్ట్‌లుగా ప్రసిద్ధి; ఎక్కువ సంఖ్యలో ఆర్డర్లు స్వాగతం.',
+    createdAt: '2026-10-25',
+  },
+  {
+    ...common, ...photo('p13-kalash.jpg'), id: 'p13', artisanId: 'a5', category: 'gifts', featured: false, tone: 'terra',
+    name: 'Kalash Planter', name_te: 'కలశం కుండీ',
+    price: 2900, size: '9 in tall', weight: '7 kg', finish: 'Natural with relief bands', leadDays: 7, madeToOrder: true,
+    art: { kind: 'kalash', variant: 'full' },
+    description: 'A kalash-shaped stone pot with relief bands. Plant tulasi or money plant, or use as a ceremonial centrepiece.',
+    description_te: 'రిలీఫ్ పట్టీలతో కలశం ఆకారపు రాతి కుండ. తులసి లేదా మనీ ప్లాంట్ నాటవచ్చు, లేదా పూజా అలంకరణకు వాడవచ్చు.',
+    createdAt: '2026-10-30',
+  },
+  {
+    ...common, ...photo('p14-coasters.jpg'), id: 'p14', artisanId: 'a6', category: 'gifts', featured: false, tone: 'sage',
+    name: 'Lotus Coaster Set', name_te: 'పద్మ కోస్టర్ల సెట్',
+    price: 1450, size: '4 in each, set of 4', weight: '2.4 kg set', finish: 'Smooth, sealed', leadDays: 0, madeToOrder: false,
+    art: { kind: 'lotus', variant: 'coaster' },
+    description: 'Four lotus-carved coasters that protect tables from heat and rings. Wipe clean with a damp cloth.',
+    description_te: 'వేడి, మరకల నుంచి టేబుల్‌ను కాపాడే పద్మ చెక్కడంతో నాలుగు కోస్టర్లు. తడి గుడ్డతో తుడిస్తే చాలు.',
+    createdAt: '2026-11-04',
+  },
+];
