@@ -13,7 +13,7 @@ export default function PostCard({ post, compact = false }) {
   const { getUser, getArtisan, toggleLike, addComment, removePost, removeComment } = useStore();
   const { user, role } = useAuth();
   const toast = useToast();
-  const { t, lang } = useLang();
+  const { t, tr, lang } = useLang();
   const navigate = useNavigate();
   const location = useLocation();
   const [showComments, setShowComments] = useState(false);
@@ -53,7 +53,7 @@ export default function PostCard({ post, compact = false }) {
           <button onClick={() => setConfirm(true)} className="grid h-11 w-11 place-items-center rounded-full text-charcoal-500 hover:bg-red-50 hover:text-red-700" aria-label={t('delete')}><Trash2 className="h-5 w-5" /></button>
         )}
       </div>
-      <p className={`px-5 pb-4 text-[16px] ${compact ? 'line-clamp-3' : ''}`}>{post.text}</p>
+      <p className={`px-5 pb-4 text-[16px] ${compact ? 'line-clamp-3' : ''}`}>{tr(post, 'text')}</p>
       {/* Images hidden — text-only posts per design decision */}
       <div className="flex items-center gap-2 px-3 py-2">
         <button onClick={like} aria-pressed={!!liked} className={`inline-flex min-h-[48px] items-center gap-2 rounded-full px-4 font-semibold transition hover:bg-sandstone-100 ${liked ? 'text-terracotta-700' : 'text-charcoal-700'}`}>
@@ -77,7 +77,7 @@ export default function PostCard({ post, compact = false }) {
                   <Avatar name={ca?.name || '?'} size="sm" tone={ca?.role === 'artisan' ? 'terracotta' : 'olive'} />
                   <div className="min-w-0 flex-1 rounded-2xl bg-white px-4 py-2.5">
                     <p className="text-sm font-semibold">{ca?.name || t('community.removedUser')} <span className="font-normal text-charcoal-500">· {timeAgo(c.createdAt, lang)}</span></p>
-                    <p>{c.text}</p>
+                    <p>{tr(c, 'text')}</p>
                   </div>
                   {mine && <button onClick={() => removeComment(post.id, c.id)} className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-charcoal-400 hover:bg-red-50 hover:text-red-700" aria-label={t('delete')}><Trash2 className="h-4 w-4" /></button>}
                 </li>
