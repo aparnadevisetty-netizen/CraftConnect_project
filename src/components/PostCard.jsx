@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Heart, MessageCircle, Trash2, Send } from 'lucide-react';
 import { Avatar, RoleBadge } from './ui.jsx';
-import StoneArt from './StoneArt.jsx';
 import ConfirmDialog from './ConfirmDialog.jsx';
 import { useStore } from '../context/StoreContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -55,11 +54,7 @@ export default function PostCard({ post, compact = false }) {
         )}
       </div>
       <p className={`px-5 pb-4 text-[16px] ${compact ? 'line-clamp-3' : ''}`}>{post.text}</p>
-      {(post.image || post.art) && (
-        <div className="aspect-[16/10] bg-sandstone-100">
-          {post.image ? <img src={post.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" /> : <StoneArt art={post.art} tone={post.tone} title="" />}
-        </div>
-      )}
+      {/* Images hidden — text-only posts per design decision */}
       <div className="flex items-center gap-2 px-3 py-2">
         <button onClick={like} aria-pressed={!!liked} className={`inline-flex min-h-[48px] items-center gap-2 rounded-full px-4 font-semibold transition hover:bg-sandstone-100 ${liked ? 'text-terracotta-700' : 'text-charcoal-700'}`}>
           <Heart className="h-6 w-6" fill={liked ? 'currentColor' : 'none'} aria-hidden /> {post.likes.length} <span className="sr-only">{t('community.likes')}</span>
