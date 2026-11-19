@@ -112,11 +112,31 @@ export function StoreProvider({ children }) {
         createdAt: t.created_at,
       }));
 
+      // Merge Supabase artisans with seed artisans so seed products always
+      // have a matching artisan (Supabase may be empty or use different IDs).
+      // Also normalise remote artisans so array fields are never null/undefined.
+      const remoteArtisans = (artisansRes.data || []).map((a) => ({
+        specialties: [],
+        languages: [],
+        experience: 0,
+        bio: '',
+        tone: 'slate',
+        photos: [],
+        ...a,
+        specialties: Array.isArray(a.specialties) ? a.specialties : [],
+        languages: Array.isArray(a.languages) ? a.languages : [],
+      }));
+      const remoteArtisanIds = new Set(remoteArtisans.map((a) => a.id));
+      const mergedArtisans = [
+        ...remoteArtisans,
+        ...state.artisans.filter((a) => !remoteArtisanIds.has(a.id)),
+      ];
+
       dispatch({
         type: 'hydrate',
         payload: {
           users: usersRes.data || state.users,
-          artisans: artisansRes.data || state.artisans,
+          artisans: mergedArtisans.length ? mergedArtisans : state.artisans,
           posts,
           requests,
         },

@@ -8,8 +8,8 @@ import { Avatar } from './ui.jsx';
 
 export function Logo({ light = false }) {
   return (
-    <span className="flex items-center gap-2.5">
-      <svg viewBox="0 0 64 64" className="h-10 w-10 shrink-0" aria-hidden>
+    <span className="flex items-center gap-2">
+      <svg viewBox="0 0 64 64" className="h-8 w-8 shrink-0" aria-hidden>
         <rect width="64" height="64" rx="16" fill="#a14b2f" />
         <g transform="translate(32 34)" fill="#fbf7ee">
           <ellipse rx="5" ry="15" cy="-12" />
@@ -19,7 +19,7 @@ export function Logo({ light = false }) {
           <ellipse rx="4" ry="12" cy="-10" transform="rotate(-95)" opacity=".75" />
         </g>
       </svg>
-      <span className={`font-display text-2xl font-bold tracking-tight ${light ? 'text-ivory' : 'text-charcoal-900'}`}>CraftConnect</span>
+      <span className={`font-display text-xl font-bold tracking-tight ${light ? 'text-ivory' : 'text-charcoal-900'}`}>CraftConnect</span>
     </span>
   );
 }
@@ -82,19 +82,19 @@ export default function Navbar() {
   };
 
   const linkCls = ({ isActive }) =>
-    `rounded-full px-3.5 py-2 text-[15px] font-semibold transition ${isActive ? 'bg-terracotta-100 text-terracotta-800' : 'text-charcoal-700 hover:bg-sandstone-100'}`;
+    `rounded-full px-4 py-1.5 text-[14px] font-medium transition ${isActive ? 'bg-terracotta-100 text-terracotta-800' : 'text-charcoal-600 hover:text-charcoal-900 hover:bg-sandstone-100'}`;
 
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-sandstone-200 bg-ivory/95 backdrop-blur">
-        <div className="container-x flex h-[72px] items-center justify-between gap-4">
+        <div className="flex h-[64px] w-full items-center justify-between gap-6 px-6 sm:px-10 lg:px-16 xl:px-24">
           <Link to="/" aria-label="CraftConnect home" className="shrink-0"><Logo /></Link>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+          <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex" aria-label="Main">
             {items.map((i) => <NavLink key={i.to} to={i.to} end={i.end} className={linkCls}>{i.label}</NavLink>)}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-2 lg:flex">
             <LangToggle />
             {user ? (
               <>
@@ -123,7 +123,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-[80] lg:hidden" role="dialog" aria-modal="true" aria-label={t('nav.menu')}>
           <div className="absolute inset-0 bg-charcoal-900/60" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm animate-slide flex-col bg-ivory shadow-lift">
-            <div className="flex h-[72px] items-center justify-between border-b border-sandstone-200 px-5">
+            <div className="flex h-[64px] items-center justify-between border-b border-sandstone-200 px-5">
               <Logo />
               <button onClick={() => setOpen(false)} className="grid h-12 w-12 place-items-center rounded-full hover:bg-sandstone-100" aria-label={t('close')}><X className="h-6 w-6" /></button>
             </div>

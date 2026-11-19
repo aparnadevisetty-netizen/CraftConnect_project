@@ -16,7 +16,8 @@ export default function ArtisanDirectory() {
   const list = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return artisans.filter((a) => {
-      if (specialty !== 'all' && !a.specialties.includes(specialty)) return false;
+      const specs = Array.isArray(a.specialties) ? a.specialties : [];
+      if (specialty !== 'all' && !specs.includes(specialty)) return false;
       if (village !== 'all' && a.village !== village) return false;
       if (needle && ![a.name, a.name_te, a.village, a.bio].join(' ').toLowerCase().includes(needle)) return false;
       return true;

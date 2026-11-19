@@ -5,6 +5,7 @@ import { useStore } from '../context/StoreContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLang } from '../i18n/LanguageContext.jsx';
 import { specialties } from '../data/artisans.js';
+import { seedArtisans } from '../data/artisans.js';
 import ProductCard from '../components/ProductCard.jsx';
 import EnquiryModal from '../components/EnquiryModal.jsx';
 import StoneArt from '../components/StoneArt.jsx';
@@ -17,7 +18,21 @@ export default function ArtisanProfile() {
   const { role } = useAuth();
   const { t, tr, label } = useLang();
   const [enquiry, setEnquiry] = useState(false);
-  const artisan = getArtisan(id);
+
+  // Fallback to seed data if Supabase hasn't loaded yet
+  const rawArtisan = getArtisan(id) || seedArtisans.find((a) => a.id === id);
+
+  // Normalize to ensure array fields are never null/undefined
+  const artisan = rawArtisan ? {
+    specialties: [],
+    languages: [],
+    experience: 0,
+    bio: '',
+    tone: 'slate',
+    ...rawArtisan,
+    specialties: Array.isArray(rawArtisan.specialties) ? rawArtisan.specialties : [],
+    languages: Array.isArray(rawArtisan.languages) ? rawArtisan.languages : [],
+  } : null;
 
   if (!artisan) {
     return (

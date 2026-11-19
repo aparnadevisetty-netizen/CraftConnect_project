@@ -9,6 +9,7 @@ export default function ArtisanCard({ artisan }) {
   const { products } = useStore();
   const { t, tr, label } = useLang();
   const count = products.filter((p) => p.artisanId === artisan.id).length;
+  const specs = Array.isArray(artisan.specialties) ? artisan.specialties : [];
   return (
     <article className="card flex h-full flex-col p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift">
       <div className="flex items-center gap-4">
@@ -21,7 +22,7 @@ export default function ArtisanCard({ artisan }) {
       </div>
       <p className="mt-4 line-clamp-3 text-[15px] text-charcoal-600">{tr(artisan, 'bio') || t('artisan.noBio')}</p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {artisan.specialties.map((s) => <span key={s} className="badge bg-sandstone-100 text-sandstone-900">{label(specialties, s)}</span>)}
+        {specs.map((s) => <span key={s} className="badge bg-sandstone-100 text-sandstone-900">{label(specialties, s)}</span>)}
       </div>
       <div className="mt-auto flex items-center justify-between pt-5">
         <span className="text-sm font-medium text-charcoal-600">{t('artisan.crafts', { n: count })}</span>
