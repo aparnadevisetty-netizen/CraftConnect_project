@@ -116,8 +116,6 @@ export function StoreProvider({ children }) {
       // have a matching artisan (Supabase may be empty or use different IDs).
       // Also normalise remote artisans so array fields are never null/undefined.
       const remoteArtisans = (artisansRes.data || []).map((a) => ({
-        specialties: [],
-        languages: [],
         experience: 0,
         bio: '',
         tone: 'slate',
